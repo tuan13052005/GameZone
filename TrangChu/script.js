@@ -1,4 +1,3 @@
-
 const games = [
     {
         name: "Minecraft",
@@ -138,8 +137,66 @@ document.getElementById("exploreButton")
         });
     });
 
+// ===== Hiển thị tài khoản sau khi đăng nhập =====
+function renderAccount() {
+    const area = document.getElementById("accountArea");
+
+    let user = null;
+    try {
+        user = JSON.parse(localStorage.getItem("currentUser"));
+    } catch (e) {
+        user = null;
+    }
+
+    // Chưa đăng nhập thì giữ nguyên 2 nút Đăng nhập / Đăng ký
+    if (!user) return;
+
+    area.innerHTML = "";
+
+    const menu = document.createElement("div");
+    menu.className = "user-menu";
+
+    const iconBtn = document.createElement("button");
+    iconBtn.className = "user-icon";
+    iconBtn.textContent = "👤";
+    iconBtn.title = user.name;
+
+    const dropdown = document.createElement("div");
+    dropdown.className = "user-dropdown";
+
+    const nameEl = document.createElement("strong");
+    nameEl.textContent = user.name;
+
+    const emailEl = document.createElement("span");
+    emailEl.textContent = user.email;
+
+    const logoutBtn = document.createElement("button");
+    logoutBtn.className = "logout-btn";
+    logoutBtn.textContent = "Đăng xuất";
+    logoutBtn.addEventListener("click", function() {
+        localStorage.removeItem("currentUser");
+        location.reload();
+    });
+
+    dropdown.append(nameEl, emailEl, logoutBtn);
+    menu.append(iconBtn, dropdown);
+    area.appendChild(menu);
+
+    // Bấm vào icon để mở/đóng menu
+    iconBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle("show");
+    });
+
+    // Bấm ra ngoài thì đóng menu
+    document.addEventListener("click", function() {
+        dropdown.classList.remove("show");
+    });
+}
+
 displayGames(games, "gameList");
 displayGames(
     games.filter(game => game.popular),
     "popularList"
 );
+renderAccount();

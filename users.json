@@ -1,3 +1,11 @@
 {
-    "users": []
+    "users": [
+        {
+            "id": 1,
+            "name": "Phạm Anh Tuấn",
+            "email": "phamanht7@gmail.com",
+            "password": "scrypt:32768:8:1$X0JxVahZPKFusB2z$c639870d360e843d385daf13215b92fb1c2623a8f0aa28c083f48981d3ad0905ee55ad18e5c7f93428dacb8034fd286bf7931b6efb2aee2c286a5cce9bed37b5",
+            "role": "user"
+        }
+    ]
 }
