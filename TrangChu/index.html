@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🎮 GAMEZONE</div>
+
+    <div class="search">
+        <input type="text" id="searchInput"
+               placeholder="Tìm kiếm game...">
+        <button id="searchButton">🔍</button>
+    </div>
+
+    <div class="account">
+        <button onclick="location.href='../DangNhap/login.html'">
+            Đăng nhập
+        </button>
+
+        <button class="register"
+                onclick="location.href='../DangKy/register.html'">
+            Đăng ký
+        </button>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html">Trang chủ</a>
+    <a href="#newGames">Game mới</a>
+    <a href="#popularGames">Game phổ biến</a>
+    <a href="#">Game 2 người</a>
+    <a href="#">Game mobile</a>
+</nav>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h3>🎯 THỂ LOẠI GAME</h3>
+
+        <a data-category="all">🏠 Tất cả trò chơi</a>
+        <a data-category="Hành động">⚔️ Hành động</a>
+        <a data-category="Phiêu lưu">🗺️ Phiêu lưu</a>
+        <a data-category="Đua xe">🏎️ Đua xe</a>
+        <a data-category="Thể thao">⚽ Thể thao</a>
+        <a data-category="Giải đố">🧩 Giải đố</a>
+        <a data-category="Bắn súng">🔫 Bắn súng</a>
+        <a data-category="Mô phỏng">🏗️ Mô phỏng</a>
+    </aside>
+
+    <main>
+
+        <section class="banner">
+            <h1>THẾ GIỚI GAME ONLINE</h1>
+            <p>Khám phá hàng ngàn trò chơi hấp dẫn!</p>
+            <button id="exploreButton">KHÁM PHÁ NGAY</button>
+        </section>
+
+        <section id="newGames">
+            <h2>🆕 GAME MỚI NHẤT</h2>
+            <div class="game-grid" id="gameList"></div>
+        </section>
+
+        <section id="popularGames">
+            <h2>🔥 GAME PHỔ BIẾN</h2>
+            <div class="game-grid" id="popularList"></div>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    <h2>🎮 GAMEZONE</h2>
+    <p>Website quản lý và trải nghiệm trò chơi trực tuyến</p>
+    <p>© 2026 GameZone</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
